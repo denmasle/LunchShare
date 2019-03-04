@@ -1,7 +1,7 @@
 {
   "name": "node-handlebars-boilerplate",
   "version": "1.0.0",
-  "description": "Project2",
+  "description": "Share lunch",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

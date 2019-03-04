@@ -1,26 +1,23 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Lunch.findAll({}).then(function(dbLunches) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        examples: dbLunches
       });
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  app.get("/lunch/:id", function(req, res) {
+    db.Lunch.findOne({ where: { id: req.params.id } }).then(function(dbLunches) {
+      res.render("lunch", {
+        example: dbLunches
       });
     });
   });
 
-  // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
   });
