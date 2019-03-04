@@ -1,24 +1,37 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  //all
+  app.get("/api/lunches", function(req, res) {
+    db.Lunch.findAll({}).then(function(dbLunches) {
+      res.json(dbLunches);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  //new
+  app.post("/api/lunches", function(req, res) {
+    db.Lunch.create(req.body).then(function(dbLunches) {
+      res.json(dbLunches);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  //put
+  app.put("/api/lunches", function(req, res) {
+    db.Lunch.update(req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      })
+      .then(function(dbLunches) {
+        res.json(dbLunches);
+      });
+  });
+
+  //delete
+  app.delete("/api/lunches/:id", function(req, res) {
+    db.Lunch.destroy({ where: { id: req.params.id } }).then(function(dbLunches) {
+      res.json(dbLunches);
     });
   });
 };
