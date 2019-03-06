@@ -1,53 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-        crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lunch Share</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
-    <div class="login">
-        email:
-        <input id="email" /> pass:
-        <input id="password" />
-        <button id="submit">submit</button>
+    <div class="fullscreen-bg">
+        <img src="./img/lunch.jpg" class="fullscreen-bg_video">
     </div>
-    <div class="redirect" style = "display: none">
-        Redirecting now...
-            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
-            <span class="sr-only">Loading...</span>
+
+    <div id="title" class="container">
+        <img id="logo" class="responsive-img" src="./img/logo.png">
+
+        <div id="sign">
+            <button id="signIn" class="waves-effect waves-light btn-large red darken-3">Sign In</button>
+            <button id="signUp" class="waves-effect waves-light btn-large red darken-3">Sign Up</button>
+        </div>
+
+        <form id="signInForm">
+            <div class="input-field">
+                <i class="material-icons prefix">email</i>
+                <input id="id" type="email" class="validate">
+                <label for="id">EMAIL</label>
+            </div>
+            <div class="input-field">
+                <i class="material-icons prefix">vpn_key</i>
+                <input id="pw" type="password" class="validate">
+                <label for="pw">PASSWORD</label>
+            </div>
+            <button type="submit" id="signInButton" class="waves-effect waves-light btn-large red darken-3">
+                Sign In</button>
+        </form>
+
+        <form id="signUpForm">
+            <div class="input-field">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="name" type="text" class="validate">
+                <label for="name">NAME</label>
+            </div>
+            <div class="input-field">
+                <i class="material-icons prefix">insert_link</i>
+                <input id="pic" type="url" class="validate">
+                <label for="pic">LINK TO PIC</label>
+            </div>
+            <div class="input-field">
+                <i class="material-icons prefix">email</i>
+                <input id="email" type="email" class="validate">
+                <label for="email">EMAIL</label>
+            </div>
+            <div class="input-field">
+                <i class="material-icons prefix">vpn_key</i>
+                <input id="password" type="password" class="validate">
+                <label for="password">PASSWORD</label>
+            </div>
+            <button type="submit" id="signUpButton" class="waves-effect waves-light btn-large red darken-3">
+                Sign Up</button>
+        </form>
     </div>
+
+    <footer class="footer-copyright center">
+        <div class="container red-text text-darken-3">
+            COPYRIGHT © 2019 EN MONTE PYTHONS, ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script> 
-        $("#submit").on("click", function (e) {
-            e.preventDefault();
-            var email = $("#email").val();
-            var password = $("#password").val();
 
-            axios.post("/auth/login", {
-                email: email,
-                password: password
-            })
-                .then(function (resp) {
-                    console.log(resp);
-                    window.localStorage.setItem("token", resp.data.token);
-                    $(".login").hide();
-                    $(".redirect").show();
-                    window.setTimeout(function () {
-                        window.location.assign("/check.html")
-                    }, 2000)
-                })
-                .catch(function (err) {
-                    console.error(err);
-                })
-        })
-    </script>
+    <!-- Have to replace main.js to main2.js later -->
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

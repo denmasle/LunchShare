@@ -4,7 +4,8 @@
     "password": null,
     "database": "lunches",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": 3306
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",

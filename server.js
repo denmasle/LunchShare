@@ -8,8 +8,8 @@ var auth = jwt({
   userProperty: 'payload'
 });
 var db = require("./models");
-var authRoutes = require("./routes/auth.routes");
-var apiRoutes = require("./routes/api.routes");
+var authRoutes = require("./routes/authRoutes");
+var apiRoutes = require("./routes/apiRoutes");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
