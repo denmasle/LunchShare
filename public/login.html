@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="login">
+        email:
+        <input id="email" /> pass:
+        <input id="password" />
+        <button id="submit">submit</button>
+    </div>
+    <div class="redirect" style = "display: none">
+        Redirecting now...
+            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script> 
+        $("#submit").on("click", function (e) {
+            e.preventDefault();
+            var email = $("#email").val();
+            var password = $("#password").val();
+
+            axios.post("/auth/login", {
+                email: email,
+                password: password
+            })
+                .then(function (resp) {
+                    console.log(resp);
+                    window.localStorage.setItem("token", resp.data.token);
+                    $(".login").hide();
+                    $(".redirect").show();
+                    window.setTimeout(function () {
+                        window.location.assign("/check.html")
+                    }, 2000)
+                })
+                .catch(function (err) {
+                    console.error(err);
+                })
+        })
+    </script>
+</body>
+
+</html>
