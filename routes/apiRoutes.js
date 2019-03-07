@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function (app) {
   //User's lunches
-  app.user("/api/lunches", function (req, res) {
+  app.get("/api/user", function (req, res) {
     db.Lunch.findAll({
       where: {
         eater: req.body.name

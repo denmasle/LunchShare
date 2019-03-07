@@ -48,23 +48,37 @@
         <li><a href="#" class="navMenu">Sign Out</a></li>
     </ul>
 
-    <div id="title">
-        <form id="addLunchForm">
-            <div class="input-field">
-                <i class="material-icons prefix">restaurant</i>
-                <input id="name" type="text" class="validate">
-                <label for="name">FOOD NAME</label>
+    <div id="title3" class="row">
+        <div class="col l6">
+            <div id="addLunch">
+                <form id="addLunchForm">
+                    <div class="input-field">
+                        <i class="material-icons prefix">restaurant</i>
+                        <input id="name" type="text" class="validate">
+                        <label for="name">FOOD NAME</label>
+                    </div>
+                    <label>
+                        <input id="trade" type="checkbox">
+                        <span class="tradeLabel">TRADE?</span>
+                    </label>
+                    <button type="submit" id="addButton" class="waves-effect waves-light btn red darken-3">
+                        ADD</button>
+                </form>
             </div>
-                <label>
-                    <input type="checkbox">
-                    <span>TRADE?</span>
-                </label>
-            <button type="submit" id="signUpButton" class="waves-effect waves-light btn red darken-3">
-                ADD</button>
-        </form>
-    </div>
 
-    <div id="searchResults"></div>
+            <div id="myLunches">
+                <h5>MY LUNCH</h5>
+                <div id="myItems" class="row"></div>
+            </div>
+        </div>
+
+        <div class="col l6">
+            <div id="searchResults">
+                <h5>SEARCH RESULT</h5>
+                <div id="searchItems" class="row"></div>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer-copyright center">
         <div class="container red-text text-darken-3">
