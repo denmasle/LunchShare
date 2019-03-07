@@ -29,7 +29,6 @@ $("#signInButton").on("click", function (event) {
             console.log(resp);
             window.localStorage.setItem("token", resp.data.token);
 
-            alert("Welcome");
             window.setTimeout(function () {
                 window.location.assign("/search.html")
             }, 1000)
@@ -52,7 +51,6 @@ $("#signUpButton").on("click", function (event) {
     console.log(userData);
     $.post("/auth/register", userData)
     .then(function() {
-        alert("User created");
       window.setTimeout(function () {
           window.location.assign("/search.html")
       }, 1000)

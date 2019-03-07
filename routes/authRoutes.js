@@ -39,18 +39,19 @@ router.post("/login", function(req, res) {
     .then(function(resp) {
         if(helpers.checkIfValidPass(resp, req.body.password)) {
             var expiry = new Date();
-            expiry.setDate(expiry.getDate() + 7);
-            res.json({
+            expiry.setDate(expiry.getDate() + 1);
+            var userData = {
                 token: jwt.sign({
                     exp: parseInt(expiry.getTime() / 1000),
                     userID: resp.id,
                     name: resp.name,
                     email: resp.email
-                }, process.env.JWT_SECRET)
-            });
+                }, process.env.JWT_SECRET)};
+            res.header('Authorization', userData.token);
+            res.json(userData);
         }
         else {
-            throw new Error("password no matchy");
+            throw new Error("password no match");
         }
     })
     .catch(function(err) {

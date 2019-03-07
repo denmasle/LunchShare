@@ -26,13 +26,11 @@ $("#signInButton").on("click", function (event) {
         password: password
     })
         .then(function (resp) {
-            console.log(resp);
             window.localStorage.setItem("token", resp.data.token);
 
-            alert("Welcome");
             window.setTimeout(function () {
                 window.location.assign("/search.html")
-            }, 1000)
+            }, 400)
         })
         .catch(function (err) {
             console.error(err);
@@ -49,12 +47,21 @@ $("#signUpButton").on("click", function (event) {
         password: $("#password").val()
       };
 
-    console.log(userData);
     $.post("/auth/register", userData)
     .then(function() {
-        alert("User created");
-      window.setTimeout(function () {
-          window.location.assign("/search.html")
-      }, 1000)
+        axios.post("/auth/login", {
+            email: userData.email,
+            password: userData.password
+        })
+            .then(function (resp) {
+                window.localStorage.setItem("token", resp.data.token);
+    
+                window.setTimeout(function () {
+                    window.location.assign("/search.html")
+                }, 400)
+            })
+            .catch(function (err) {
+                console.error(err);
+            })
     });
 });

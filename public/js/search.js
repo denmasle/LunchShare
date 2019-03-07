@@ -1,8 +1,19 @@
 var token = window.localStorage.getItem("token");
-var payload = JSON.parse(window.atob(token.split('.')[1]));
-var currentTime = new Date();
+
 if (!token) {
-    //check token exp
     window.location.assign("/login.html")
-}
-console.log(JSON.parse(window.atob(token.split('.')[1])))
+} else {
+    var payload = JSON.parse(window.atob(token.split('.')[1]));
+    var currentTime = new Date();
+
+    if (payload.exp < currentTime / 1000) {
+        window.location.assign("/login.html")
+    };
+};
+
+$(document).ready(function () {
+    $('.sidenav').sidenav();
+
+
+
+});
