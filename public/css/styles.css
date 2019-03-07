@@ -9,6 +9,19 @@ footer {
   text-align: center;
 }
 
+#navLogo {
+  width: 250px;
+  margin: 5px;
+}
+
+.nav-wrapper{
+  background-color: rgb(255, 233, 233) !important;
+ }
+
+ .navMenu {
+   color: #c62828 !important;
+ }
+
 #title {
   text-align: center;
   position: absolute;

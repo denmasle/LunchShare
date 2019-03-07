@@ -17,23 +17,54 @@
         <img src="./img/lunch.jpg" class="fullscreen-media">
     </div>
 
-    <div id="title2" class="container">
-        <img id="logo" class="responsive-img" src="./img/logo.png">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo"><img id="navLogo" src="img/logo.png"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons navMenu">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#" class="navMenu">All Lunches</a></li>
+                <li><a href="#" class="navMenu">Add Lunches</a></li>
+                <li><a href="#" class="navMenu">Sign Out</a></li>
+            </ul>
+            <form class="right hide-on-med-and-down" id="searchForm">
+                <div class="input-field" style="width: 200pt;">
+                    <input id="search" type="search" required>
+                    <label class="label-icon" for="search"><i class="material-icons navMenu">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </nav>
 
-        <nav>
-            <div class="nav-wrapper">
-                <form>
-                    <div class="input-field">
-                        <input id="search" type="search" required>
-                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
-                    </div>
-                </form>
+    <ul class="sidenav" id="mobile-demo">
+        <div class="input-field" style="width: 225pt;">
+            <input id="search2" type="search" required>
+            <label class="label-icon" for="search2"><i class="material-icons navMenu"
+                    id="searchButton">search</i></label>
+            <i class="material-icons">close</i>
+        </div>
+        <li><a href="#" class="navMenu">All Lunches</a></li>
+        <li><a href="#" class="navMenu">Add Lunches</a></li>
+        <li><a href="#" class="navMenu">Sign Out</a></li>
+    </ul>
+
+    <div id="title">
+        <form id="addLunchForm">
+            <div class="input-field">
+                <i class="material-icons prefix">restaurant</i>
+                <input id="name" type="text" class="validate">
+                <label for="name">FOOD NAME</label>
             </div>
-        </nav>
-
-        <div id="results"></div>
+                <label>
+                    <input type="checkbox">
+                    <span>TRADE?</span>
+                </label>
+            <button type="submit" id="signUpButton" class="waves-effect waves-light btn red darken-3">
+                ADD</button>
+        </form>
     </div>
+
+    <div id="searchResults"></div>
 
     <footer class="footer-copyright center">
         <div class="container red-text text-darken-3">
@@ -41,9 +72,9 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="./js/search.js"></script>
 </body>
