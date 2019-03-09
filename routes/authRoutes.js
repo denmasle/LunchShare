@@ -47,7 +47,7 @@ router.post("/login", function(req, res) {
                     name: resp.name,
                     email: resp.email
                 }, process.env.JWT_SECRET)};
-            res.header('Authorization', userData.token);
+            res.header('Authorization', 'Bearer ' + userData.token);
             res.json(userData);
         }
         else {

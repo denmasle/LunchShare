@@ -14,58 +14,70 @@
 
 <body>
     <div class="fullscreen-bg">
-        <video autoplay muted class="fullscreen-media">
-            <source src="./img/lunch.mp4" type="video/mp4">
-        </video>
+        <img src="./img/lunch.jpg" class="fullscreen-media">
     </div>
 
-    <div id="title" class="container">
-        <img id="logo" class="responsive-img" src="./img/logo.png">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo"><img id="navLogo" src="img/logo.png"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons navMenu">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#" class="navMenu">All Lunches</a></li>
+                <li><a href="#" class="navMenu">Add Lunches</a></li>
+                <li><a href="#" class="navMenu">Sign Out</a></li>
+            </ul>
+            <form class="right hide-on-med-and-down" id="searchForm">
+                <div class="input-field" style="width: 200pt;">
+                    <input id="search" type="search" required>
+                    <label class="label-icon" for="search"><i class="material-icons navMenu">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </nav>
 
-        <div id="sign">
-            <button id="signIn" class="waves-effect waves-light btn-large red darken-3">Sign In</button>
-            <button id="signUp" class="waves-effect waves-light btn-large red darken-3">Sign Up</button>
+    <ul class="sidenav" id="mobile-demo">
+        <div class="input-field" style="width: 225pt;">
+            <input id="search2" type="search" required>
+            <label class="label-icon" for="search2"><i class="material-icons navMenu"
+                    id="searchButton">search</i></label>
+            <i class="material-icons">close</i>
+        </div>
+        <li><a href="#" class="navMenu">All Lunches</a></li>
+        <li><a href="#" class="navMenu">Add Lunches</a></li>
+        <li><a href="#" class="navMenu">Sign Out</a></li>
+    </ul>
+
+    <div id="title3" class="row">
+        <div class="col l6">
+            <div id="addLunch">
+                <form id="addLunchForm">
+                    <div class="input-field">
+                        <i class="material-icons prefix">restaurant</i>
+                        <input id="name" type="text" class="validate">
+                        <label for="name">FOOD NAME</label>
+                    </div>
+                    <label>
+                        <input id="trade" type="checkbox">
+                        <span class="tradeLabel">TRADE?</span>
+                    </label>
+                    <button type="submit" id="addButton" class="waves-effect waves-light btn red darken-3">
+                        ADD</button>
+                </form>
+            </div>
+
+            <div id="myLunches">
+                <h5>MY LUNCH</h5>
+                <div id="myItems" class="row"></div>
+            </div>
         </div>
 
-        <form id="signInForm">
-            <div class="input-field">
-                <i class="material-icons prefix">email</i>
-                <input id="id" type="email" class="validate">
-                <label for="id">EMAIL</label>
+        <div class="col l6">
+            <div id="searchResults">
+                <h5>SEARCH RESULT</h5>
+                <div id="searchItems" class="row"></div>
             </div>
-            <div class="input-field">
-                <i class="material-icons prefix">vpn_key</i>
-                <input id="pw" type="password" class="validate">
-                <label for="pw">PASSWORD</label>
-            </div>
-            <button type="submit" id="signInButton" class="waves-effect waves-light btn-large red darken-3">
-                Sign In</button>
-        </form>
-
-        <form id="signUpForm">
-            <div class="input-field">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="name" type="text" class="validate">
-                <label for="name">NAME</label>
-            </div>
-            <div class="input-field">
-                <i class="material-icons prefix">insert_link</i>
-                <input id="pic" type="url" class="validate">
-                <label for="pic">LINK TO PIC</label>
-            </div>
-            <div class="input-field">
-                <i class="material-icons prefix">email</i>
-                <input id="email" type="email" class="validate">
-                <label for="email">EMAIL</label>
-            </div>
-            <div class="input-field">
-                <i class="material-icons prefix">vpn_key</i>
-                <input id="password" type="password" class="validate">
-                <label for="password">PASSWORD</label>
-            </div>
-            <button type="submit" id="signUpButton" class="waves-effect waves-light btn-large red darken-3">
-                Sign Up</button>
-        </form>
+        </div>
     </div>
 
     <footer class="footer-copyright center">
@@ -74,10 +86,11 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./js/main.js"></script>
+
+    <script src="./js/search.js"></script>
 </body>
 
 </html>
