@@ -1,8 +1,6 @@
 footer {
-  position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 70px;
   padding: 30px 0;
   font-size: 12px;
@@ -49,12 +47,14 @@ footer {
 }
 
 #title3 {
-  position: absolute;
+  margin-top: 40px;
   text-align: center;
   width: 90%;
-  top: 50%;
+  /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  transform: translate(-50%, -50%); */
+  min-height: calc(100vh - 200px);
 }
 
 #sign {
@@ -132,17 +132,21 @@ button {
   margin-right: 20px;
 }
 
-.foodName, .foodOption {
+.myFoodName, .foodName, .foodOption {
   margin-top:10px;
 }
 
-.foodName {
+.myFoodName, .foodName {
   height: 36px;
   font-size: 20px;
 }
 
-#search2 {
-  padding-left: 60px;
+#mobile-search {
+  width: 220px;
+}
+
+#searchButton {
+  margin-top: 20px;
 }
 
 #myItems, #searchItems {
@@ -174,7 +178,7 @@ h5 {
   padding: 10px;
 }
 
-.modal-content {
+.modal-trade, .modal-content {
   font-size: 18px;
   line-height: 2em;
   padding: 30px;

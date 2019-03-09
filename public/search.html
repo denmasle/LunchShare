@@ -22,8 +22,8 @@
             <a href="#!" class="brand-logo"><img id="navLogo" src="img/logo.png"></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons navMenu">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="#" id="allTradable1" class="navMenu">All Tradable Lunches</a></li>
-                <li><a href="#" id="signOut1" class="navMenu">Sign Out</a></li>
+                <li><a href="#" id="allTradable1" class="navMenu">SHOW ALL TRADABLE LUNCHES</a></li>
+                <li><a href="#" id="signOut1" class="navMenu">SIGN OUT</a></li>
             </ul>
             <form class="right hide-on-med-and-down" id="searchForm">
                 <div class="input-field" style="width: 200pt;">
@@ -42,14 +42,18 @@
             </div>
             <div id="userName2" class="col s7">Welcome,<br>Ethan!</div>
         </div>
-        <div class="input-field" style="width: 225pt;">
-            <input id="search2" type="search" required>
-            <label class="label-icon" for="search2"><i class="material-icons navMenu"
-                    id="searchButton">search</i></label>
-            <i class="material-icons">close</i>
+        <div class="row">
+            <div class="input-field col s9" id="mobile-search">
+                <input id="search2" type="search">
+                <label for="search2">SEARCH TRADABLE LUNCH</label>
+            </div>
+            <div class="col s3">
+                <button type="submit" id="searchButton" class="waves-effect waves-light btn red darken-3">
+                    <i class="material-icons">search</i></button>
+            </div>
         </div>
-        <li><a href="#" id="allTradable2" class="navMenu">All Tradable Lunches</a></li>
-        <li><a href="#" id="signOut2" class="navMenu">Sign Out</a></li>
+        <li><a href="#" id="allTradable2" class="navMenu">SHOW ALL TRADABLE LUNCHES</a></li>
+        <li><a href="#" id="signOut2" class="navMenu">SIGN OUT</a></li>
     </ul>
 
     <div id="title3" class="row">
@@ -81,7 +85,7 @@
 
         <div class="col l6 sub">
             <div id="myLunches">
-                <h5>MY LUNCH</h5>
+                <h5 id="myTitle">MY LUNCH</h5>
                 <div id="myItems" class="row"></div>
             </div>
         </div>
@@ -89,21 +93,35 @@
         <div class="col l6 sub">
             <div id="searchResults">
                 <h5>SEARCH RESULT</h5>
-                <div id="searchItems" class="row"><h4>(What do you want to eat? :)</h4></div>
+                <div id="searchItems" class="row">
+                    <h4>(What do you want to eat? :)</h4>
+                </div>
             </div>
         </div>
     </div>
 
-    <footer class="footer-copyright center">
-        <div class="container red-text text-darken-3">
-            COPYRIGHT © 2019 EN MONTE PYTHONS, ALL RIGHTS RESERVED.
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content center amber lighten-4">
         </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-trade center amber lighten-4">
+        </div>
+        <div class="modal-footer">
+            <a href="#!" id="disagree" class="modal-close waves-effect waves-green btn-flat">Disagree</a>
+            <a href="#!" id="agree" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+    <footer class="center red-text text-darken-3">
+            COPYRIGHT © 2019 EN MONTE PYTHONS, ALL RIGHTS RESERVED.
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
     <script src="./js/search.js"></script>
 </body>
 
