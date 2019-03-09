@@ -132,17 +132,21 @@ button {
   margin-right: 20px;
 }
 
-.foodName, .foodOption {
+.myFoodName, .foodName, .foodOption {
   margin-top:10px;
 }
 
-.foodName {
+.myFoodName, .foodName {
   height: 36px;
   font-size: 20px;
 }
 
-#search2 {
-  padding-left: 60px;
+#mobile-search {
+  width: 220px;
+}
+
+#searchButton {
+  margin-top: 20px;
 }
 
 #myItems, #searchItems {
@@ -174,7 +178,7 @@ h5 {
   padding: 10px;
 }
 
-.modal-content {
+.modal-trade, .modal-content {
   font-size: 18px;
   line-height: 2em;
   padding: 30px;
