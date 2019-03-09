@@ -45,7 +45,7 @@ router.post("/login", function(req, res) {
                     exp: parseInt(expiry.getTime() / 1000),
                     userID: resp.id,
                     name: resp.name,
-                    email: resp.email
+                    url: resp.url
                 }, process.env.JWT_SECRET)};
             res.header('Authorization', 'Bearer ' + userData.token);
             res.json(userData);

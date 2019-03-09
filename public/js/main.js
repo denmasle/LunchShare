@@ -11,7 +11,7 @@ $(document).ready(function () {
             var currentTime = new Date();
     
             if (payload.exp > currentTime / 1000) {
-                window.location.assign("/index.html")
+                window.location.assign("/search.html")
             };
         };
     };
@@ -37,8 +37,8 @@ $(document).ready(function () {
     $("#signInButton").on("click", function (event) {
         event.preventDefault();
 
-        var email = $("#id").val();
-        var password = $("#pw").val();
+        var email = $("#id").val().trim();
+        var password = $("#pw").val().trim();
 
         $.post("/auth/login", {
             email: email,
@@ -49,10 +49,11 @@ $(document).ready(function () {
                 window.localStorage.setItem("token", resp.token);
 
                 window.setTimeout(function () {
-                    window.location.assign("/index.html")
+                    window.location.assign("/search.html")
                 }, 400)
             })
             .catch(function (err) {
+                console.log(err.responseJSON.msg);
                 if (err.responseJSON.msg === "Error: password no match" ||
                 err.responseJSON.msg === "TypeError: Cannot read property 'salt' of null") {
                     $(".modal-content").html("THE EMAIL OR PASSWORD<br>DOES NOT MATCH OUR RECORDS");
@@ -67,28 +68,29 @@ $(document).ready(function () {
         event.preventDefault();
 
         var userData = {
-            name: $("#name").val(),
-            url: $("#pic").val(),
-            email: $("#email").val(),
-            password: $("#password").val()
+            name: $("#name").val().trim(),
+            url: $("#pic").val().trim(),
+            email: $("#email").val().trim(),
+            password: $("#password").val().trim()
         };
 
         $.post("/auth/register", userData)
             .then(function () {
                 $.post("/auth/login", {
-                    email: email,
-                    password: password
+                    email: userData.email,
+                    password: userData.password
                 })
                     .then(function (resp) {
                         window.localStorage.setItem("EnMonte", "Pythons");
                         window.localStorage.setItem("token", resp.token);
 
                         window.setTimeout(function () {
-                            window.location.assign("/index.html")
+                            window.location.assign("/search.html")
                         }, 400)
                     })
             })
             .catch(function (err) {
+                console.log(err.responseJSON.msg);
                 if (err.responseJSON.msg === "SequelizeValidationError: Validation error: Validation isEmail on email failed") {
                     $(".modal-content").html("AN EMAIL ADDRESS IS<BR>INVALID OR ALREADY IN USE");
                 } else {
