@@ -104,6 +104,9 @@ $(document).ready(function () {
                     mine: mine,
                     yours: yours
                 });
+                window.setTimeout(function () {
+                    window.location.assign("/search.html")
+                }, 2000);
             };
 
             var ok = rejects.indexOf(payload.userID);
@@ -201,6 +204,7 @@ $(document).ready(function () {
 
     $("#allTradable2").on("click", function (event) {
         event.preventDefault();
+        $('.sidenav').sidenav("close");
         tradableLunch();
     });
 
@@ -270,6 +274,7 @@ $(document).ready(function () {
 
     $("#searchButton").on("click", function (event) {
         event.preventDefault();
+        $('.sidenav').sidenav("close");
         searchLunch($("#search2").val().trim());
     });
 
