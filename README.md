@@ -5,3 +5,5 @@ Lunch Share makes lunch more fun and enjoyable by encouraging kids to share and 
 
 ### Built with:
 HTML, CSS, Materialize, Javascript, JQuery, NodeJS, Express, JSON Web Token, MySQL, Sequelize, Firebase.
+
+https://lunchshare-project2.herokuapp.com/
